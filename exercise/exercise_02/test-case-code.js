@@ -17,6 +17,21 @@ The function should return the discount percentage based on the following:
 Use nested ternary operators to implement this logic 
 in a single return statement.*/
 
+function calculateDiscount(membershipLevel, purchaseAmount) {
+    let gold = 0.2;
+    let silver = 0.15;
+    let bronze = 0.1;
+    let none = 0;
+    
+    
+    let result =    membershipLevel === 'gold' ? gold:
+                    membershipLevel === "silver" ? silver:
+                    membershipLevel === "bronze" ? bronze:
+                    none
+    return result * purchaseAmount;
+
+}
+
 
 console.log(calculateDiscount("gold", 100)); // Outputs: 20
 console.log(calculateDiscount("silver", 200)); // Outputs: 30

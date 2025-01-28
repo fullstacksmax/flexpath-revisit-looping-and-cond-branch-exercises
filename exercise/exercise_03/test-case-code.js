@@ -26,9 +26,31 @@ Weights are categorized as:
 Implement the function so that it returns the 
 correct shipping cost based on the weight category.*/
 
-/*
+function getShippingCost(weight) {
+    const category =    weight <= 1 ? 1 :
+                        weight <= 5 ? 2 :
+                        weight <= 10 ? 3 : 4
+
+    switch (category) {
+        case(1):
+        return "$5"
+        case(2):
+        return "$10"
+        case(3):
+        return "$15"
+        case(4):
+        return "$20"
+
+    }
+}
+
+
+
+
+
+
 console.log(getShippingCost(0.5)); // Outputs: 5
 console.log(getShippingCost(3)); // Outputs: 10
 console.log(getShippingCost(7)); // Outputs: 15
 console.log(getShippingCost(12)); // Outputs: 20
-*/
+

@@ -11,6 +11,35 @@ returns true if they are equal in value AND type, and false otherwise.
 Handle cases where values are objects, arrays, or functions by 
 comparing their references.*/
 
+function areValuesEqual2 (a,b) {
+    if(a === b) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+
+function areValuesEqual(a, b) {
+    if(typeof a === typeof b) {
+        if(a === b) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    else {
+        return false
+    }
+}
+
+
+
+
+
+
 console.log(areValuesEqual(5, "5")); // Outputs: false
 console.log(areValuesEqual(5, 5)); // Outputs: true
 console.log(areValuesEqual([1, 2], [1, 2])); // Outputs: false

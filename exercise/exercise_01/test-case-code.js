@@ -53,7 +53,7 @@ function validateUser(user) {
   }
   
   else {
-    return true;
+    return false;
   }
 }
 
