@@ -36,3 +36,27 @@ const user3 = {
   subscriptionType: "basic",
   banned: true,
 };
+
+function validateUser(user) {
+  if(user.banned) {
+    return false;
+  }
+  if(user.age < 18) {
+    return false;
+  }
+  if(user.isAdmin){
+    return true;
+  }
+
+  if(user.subscriptionType === "pro" || user.subscriptionType === "enterprise"){
+    return true;
+  }
+  
+  else {
+    return true;
+  }
+}
+
+console.log(validateUser(user1))
+console.log(validateUser(user2))
+console.log(validateUser(user3))
