@@ -1,4 +1,17 @@
 // When ready, use code below for testing
+/*
+Exercise 5: Custom Increment/Decrement Operators
+
+Problem:
+
+Create an object `counter` with a property 'value' initialized to 0. 
+
+Add methods 'increment' and 'decrement' that mimic the behavior of the 
+increment (++) and decrement (--) operators. 
+
+Ensure that the methods can be used in both prefix and postfix forms, and that 
+they return the correct values.*/
+
 
 console.log(counter.increment()); // Outputs: 0 (postfix)
 console.log(counter.value); // Outputs: 1

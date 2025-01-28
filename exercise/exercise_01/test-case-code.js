@@ -1,4 +1,23 @@
 // When ready, use code below for testing
+
+/*
+Exercise 1: Complex Conditional Logic with Multiple Operators
+
+Problem:
+
+Write a function `validateUser` that accepts an object representing 
+a user with properties 'age', 'isAdmin', and 'subscriptionType'. 
+
+The function should return true if the user meets all the following conditions:
+
+- The user is at least 18 years old.
+- The user is an admin or has a subscription type of 'pro' or 'enterprise'.
+- The user does not have a banned property set to true.
+
+Implement the function using a combination of if-else statements, 
+logical operators, and the !== operator for strict inequality.*/
+
+
 const user1 = {
   age: 25,
   isAdmin: false,
