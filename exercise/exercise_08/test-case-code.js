@@ -15,7 +15,34 @@ const objA = { a: 1, b: { c: 2 } };
 const objB = { a: 1, b: { c: 2 } };
 const objC = { a: 1, b: { c: 4 } };
 
-console.log(objA.a === objB.a)
-console.log(objA === objC)
-//console.log(areObjectsEqual(objA, objB)); // Outputs: true
-//console.log(areObjectsEqual(objA, objC)); // Outputs: false
+
+
+function areObjectsEqual(a, b) {
+   if(a === b) return true;
+   
+   if (
+    typeof a != "object" ||
+    a == null ||
+    typeof b != "object" ||
+    b == null
+  ) {
+    return false;
+  }
+
+   let keysA = Object.keys(a);
+   let keysB = Object.keys(b);
+
+   if(keysA.length != keysB.length) return false;
+   
+   
+   for (let key of keysA){
+    if (!keysB.includes(key)) return false;
+    if (!areObjectsEqual(a[key], b[key])) return false;
+   }
+   return true;
+}
+
+
+console.log(areObjectsEqual(objA, objB)); // Outputs: true
+console.log(areObjectsEqual(objA, objC)); // Outputs: false
+ 
