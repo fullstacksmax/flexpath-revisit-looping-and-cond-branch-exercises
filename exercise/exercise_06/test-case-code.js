@@ -20,6 +20,30 @@ Demonstrate the short-circuit behavior.*/
 
 
 
+function evaluateExpression(a, b, c){
+  if(a() === true){
+    //console.log("first")
+    return a()
+  }
+  if(b() === true ){
+    if(c() === false){
+      //console.log('second')
+      return true
+    }
+  }
+  else {
+    return false
+  }
+}
+
+// alternatively
+function evaluateExpression2(funcA, funcB, funcC) {
+  return funcA() || (funcB() && !funcC())
+}
+
+
+
+
 function funcA() {
   console.log("funcA called");
   return false;
@@ -34,6 +58,7 @@ function funcC() {
   console.log("funcC called");
   return false;
 }
-
+//console.log(funcA() === true)
 // Outputs: funcA called, funcB called, funcC called, true
 console.log(evaluateExpression(funcA, funcB, funcC));
+console.log(evaluateExpression2(funcA, funcB, funcC));
