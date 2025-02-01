@@ -11,17 +11,19 @@ the increment/decrement operators.
 
 Ensure that the counter behaves correctly at the boundaries. */
 
-const CircularCounter = class {
-    max = 3;
-    count = 0;
-    temp = 0
+class CircularCounter  {
+    constructor(max) {
+    this.max = max
+    this.count = 0;
+    this.temp = 0
+    }
     increment = function (def = true) {
         //console.log('function block')
         if(def === true) {
         if(this.count === this.max + 1) {
             this.count = 1
             this.temp = this.count - 1
-            return `if block ${this.temp}`;
+            return this.temp;
         }
         else {
             //console.log('else block')
@@ -30,7 +32,7 @@ const CircularCounter = class {
             ++this.count;
 
             
-            return `else block ${this.temp}`;
+            return this.temp;
         }
     }
         else {
@@ -54,7 +56,7 @@ const CircularCounter = class {
     
 }
 
-const myclass = new CircularCounter
+const myclass = new CircularCounter(3)
 
 //console.log(myclass)
 //console.log(myclass.max)
@@ -65,7 +67,7 @@ console.log(myclass.increment())
 console.log(myclass.increment())
 console.log(myclass.increment())
 
-
+console.log()
 //console.log(myclass.increment())
 myclass.count = 0
 console.log(myclass.increment(false))
