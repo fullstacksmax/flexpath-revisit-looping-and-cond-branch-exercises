@@ -14,27 +14,41 @@ Ensure that the counter behaves correctly at the boundaries. */
 const CircularCounter = class {
     max = 3;
     count = 0;
-    increment = function () {
+    temp = 0
+    increment = function (def = true) {
         //console.log('function block')
-        if(this.count === this.max) {
-            this.count = 0
-            return this.count;
+        if(def === true) {
+        if(this.count === this.max + 1) {
+            this.count = 1
+            this.temp = this.count - 1
+            return `if block ${this.temp}`;
         }
         else {
             //console.log('else block')
-            this.count++;
-            return this.count;
+            //console.log('postfix')
+            this.temp = this.count
+            ++this.count;
+
+            
+            return `else block ${this.temp}`;
+        }
+    }
+        else {
+            this.count = (this.count + 1) % (this.max + 1); 
+            this.temp = this.count;
+            return   this.temp
         }
     }
 
-    decrement = function () {
-        if(this.count === 0) {
-            this.count = this.max;
-            return this.count 
+    decrement = function (def = true) {
+        if(def){
+            this.count = (this.count - 1 + (this.max + 1)) % (this.max + 1)
+            return this.count
         }
         else {
-            this.count--;
-            return this.count
+            this.temp = this.count
+            this.count = ((this.count - 1) + (this.max+1)) % (this.max + 1)
+            return this.temp
         }
     }
     
@@ -50,13 +64,28 @@ console.log(myclass.increment())
 console.log(myclass.increment())
 console.log(myclass.increment())
 console.log(myclass.increment())
-console.log(myclass.increment())
+
+
+//console.log(myclass.increment())
+myclass.count = 0
+console.log(myclass.increment(false))
+console.log(myclass.increment(false))
+
+console.log(myclass.increment(false))
+
+console.log(myclass.increment(false))
+
+console.log()
+myclass.count = 0
+
 console.log(myclass.decrement())
 console.log(myclass.decrement())
 console.log(myclass.decrement())
 console.log(myclass.decrement())
-console.log(myclass.decrement())
-console.log(myclass.increment())
-console.log(myclass.increment())
-console.log(myclass.increment())
+console.log()
+myclass.count = 0
+console.log(myclass.decrement(false))
+console.log(myclass.decrement(false))
+console.log(myclass.decrement(false))
+console.log(myclass.decrement(false))
 
